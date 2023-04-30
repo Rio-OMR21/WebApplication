@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Quiz System</title>
+  <style>
+    #quiz {
+      display: none;
+    }
+    .question {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .answer {
+      margin-left: 20px;
+    }
+    #result {
+      display: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Online Quiz System</h1>
+  <button onclick="startQuiz()">Start Quiz</button>
+  <div id="quiz">
+    <div class="question">1. What is the capital of France?</div>
+    <div class="answer"><input type="radio" name="q1" value="a">A. London</div>
+    <div class="answer"><input type="radio" name="q1" value="b">B. Paris</div>
+    <div class="answer"><input type="radio" name="q1" value="c">C. Berlin</div>
+    <div class="question">2. Who is the CEO of Tesla?</div>
+    <div class="answer"><input type="radio" name="q2" value="a">A. Jeff Bezos</div>
+    <div class="answer"><input type="radio" name="q2" value="b">B. Bill Gates</div>
+    <div class="answer"><input type="radio" name="q2" value="c">C. Elon Musk</div>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+  </div>
+  <div id="result"></div>
+  <script>
+    var quiz = document.getElementById("quiz");
+    var result = document.getElementById("result");
+
+    function startQuiz() {
+      quiz.style.display = "block";
+    }
+
+    function submitQuiz() {
+      var q1 = document.getElementsByName("q1");
+      var q2 = document.getElementsByName("q2");
+      var score = 0;
+
+      for (var i = 0; i < q1.length; i++) {
+        if (q1[i].checked && q1[i].value === "b") {
+          score++;
+        }
+      }
+
+      for (var i = 0; i < q2.length; i++) {
+        if (q2[i].checked && q2[i].value === "c") {
+          score++;
+        }
+      }
+
+      result.innerHTML = "Your score is: " + score + "/2";
+      result.style.display = "block";
+      quiz.style.display = "none";
+    }
+  </script>
+</body>
+</html>

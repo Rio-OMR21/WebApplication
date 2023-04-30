@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slideshow and Digital Clock</title>
+  <style>
+    /* Style for image slideshow */
+    .slideshow-container {
+      max-width: 500px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+      height: auto;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      width: auto;
+      margin-top: -22px;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      cursor: pointer;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    /* Style for digital clock */
+    #clock {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 50px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="11.jpg" alt="Image 1" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="22.jpg" alt="Image 2" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="33.jpg" alt="Image 2" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <img src="44.webp" alt="Image 2" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+      <img src="Coffee-in-a-cup.jpg" alt="Image 3" style="width:100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <div id="clock"></div>
+
+  <script>
+    // Image Slideshow script
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+
+    // Digital Clock script
+    function displayTime() {
+      var date = new Date();
+      var hours = date.getHours();
+      var minutes = date.getMinutes();
+      var seconds = date.getSeconds();
+      hours = (hours < 10 ? "0" : "") + hours;
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
+      var time = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("clock").innerHTML = time;
+      setTimeout(displayTime, 1000); // Update the clock every second
+    }
+
+    displayTime(); // Start the clock
+  </script>
+</body>
+</html>

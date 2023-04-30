@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic Arithmetic Operations</title>
+</head>
+<body>
+  <label>Operand 1: </label>
+  <input type="text" id="num1"><br>
+  <label>Operand 2: </label>
+  <input type="text" id="num2"><br><br>
+
+  <button onclick="add()">+</button>
+  <button onclick="subtract()">-</button>
+  <button onclick="multiply()">*</button>
+  <button onclick="divide()">/</button>
+  <button onclick="modulo()">%</button><br><br>
+
+  <label>Result: </label>
+  <input type="text" id="result" readonly>
+
+  <script>
+    function add() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result = num1 + num2;
+      document.getElementById("result").value = result;
+    }
+
+    function subtract() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result = num1 - num2;
+      document.getElementById("result").value = result;
+    }
+
+    function multiply() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result = num1 * num2;
+      document.getElementById("result").value = result;
+    }
+
+    function divide() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result = num1 / num2;
+      document.getElementById("result").value = result;
+    }
+
+    function modulo() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var result = num1 % num2;
+      document.getElementById("result").value = result;
+    }
+  </script>
+</body>
+</html>
